@@ -1,0 +1,89 @@
+<aside class="main-sidebar  elevation-4 bg-dark" style="background-image: url('/assets/leftside.svg'); position:fixed;">
+  <!-- Brand Logo -->
+  <a href="index3.html" class="brand-link text-center">
+    <h2> <b class="text-success text-center">Smart-T</b></h2>
+  </a>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image d-flex">
+        <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-circle elevation-2" alt="User Image"
+          style="opacity: .8; width: 20%;" width="180px" height="180px">
+
+        <a href="/dashboard/profile" class="nav-link" routerLink="profile" style="font-size: 20px;">{{
+          username|uppercase }}</a>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item has-treeview menu-open">
+          <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/dashboard/home" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/dashboard/garbagept" class="nav-link">
+                <i class="fas fa-trash nav-icon"></i>
+                <p>Garbage Points</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="showAdminBoard">
+              <a href="/dashboard/userList" class="nav-link">
+                <i class="fas fa-users nav-icon"></i>
+                <p>Agents</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="showAdminBoard">
+              <a href="/dashboard/adminList" class="nav-link">
+                <i class="fas fa-users nav-icon"></i>
+                <p>Admins</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="showAdminBoard">
+          <a href="/dashboard/charts" class="nav-link">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              Charts
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="showUserBoard">
+          <a href="/mod" class="nav-link" routerLink="admin">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              Moderator Board
+            </p>
+          </a>
+        </li>
+     
+        <li class="nav-item">
+          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              User
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

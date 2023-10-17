@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="col-md-4"
+  style="    
+    position: absolute;  
+    margin-top: 5%;
+    margin-left: 35%;
+    "
+  >
+  <div class="card" 
+  style="
+    background-color: none;
+  ">
+    <div class="card-body login-card-body" style="justify-content: center;box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; border-radius: 15px;">
+
+      <div class="col-sm-12" >
+        <div class="pb-1" style="text-align: center; display: flex; flex-direction: column; justify-content: space-around;">
+          <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            class="profile-img-card col-sm-12 text-center" style="height: fit-content;"/>
+            <span style="font-weight: 700;font-size: xx-large; ">Login !</span>
+          <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+              <input placeholder="Enter Username" class="form-control" name="username" [(ngModel)]="formData.username" required
+                #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+              <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+                Username is required!
+              </div>
+            </div>
+            <div class="form-group" >
+              <input placeholder="Enter Password" type="password" class="form-control" name="password" [(ngModel)]="formData.password" required
+                minlength="6" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;" />
+              <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+                <div *ngIf="password.errors['required']">Password is required</div>
+                <div *ngIf="password.errors['minlength']">
+                  Password must be at least 6 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-block">
+                <b>Login</b>
+              </button>
+            </div>
+            <div class="form-group">
+              <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-danger" role="alert">
+                Login failed: {{ errorMessage }}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
